@@ -4,10 +4,10 @@ import time
 
 def login(L):
     L.login("shkolniebudni", "Workonelove122")
-    profile = Profile.from_username(L.context, "kim_asja")
+    profile = Profile.from_username(L.context, "dianapagalina")
     return profile
 
-def parcing(profile):  
+def parsing(profile):  
     i = 0  
     t0 = int(time.time())
     print("start parcing at {}!".format(str(t0)))
@@ -16,9 +16,9 @@ def parcing(profile):
         i += 1
         f.write(followers.username + "\n")
         print(followers.username)
-        if i % 5 == 0:
+        if i % 10 == 0:
             print("stop")
-            time.sleep(2)
+            time.sleep(3)
     f.close()
     done = int(time.time())- t0
     print("{}s was waisted".format(str(done)))
@@ -26,8 +26,7 @@ def parcing(profile):
 def main():
     L = instaloader.Instaloader()
     profile = login(L)
-    followers = profile.get_followers()
-    print(followers)
+    parsing(profile)
 
     
 
